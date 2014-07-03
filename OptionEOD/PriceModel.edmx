@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PriceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="OptionErrors">
+          <Key>
+            <PropertyRef Name="underSymbol" />
+            <PropertyRef Name="tradeDate" />
+            <PropertyRef Name="expYear" />
+            <PropertyRef Name="expMonth" />
+          </Key>
+          <Property Name="underSymbol" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tradeDate" Type="int" Nullable="false" />
+          <Property Name="expYear" Type="int" Nullable="false" />
+          <Property Name="expMonth" Type="int" Nullable="false" />
+          <Property Name="dldAttempt" Type="int" Nullable="false" />
+          <Property Name="lastAttDate" Type="int" Nullable="false" />
+          <Property Name="lastAttTime" Type="int" Nullable="false" />
+          <Property Name="success" Type="int" Nullable="false" />
+          <Property Name="notes" Type="varchar" MaxLength="50" />
+          <Property Name="groupName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="PriceModelStoreContainer">
+          <EntitySet Name="OptionErrors" EntityType="Self.OptionErrors" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PriceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="OptionError">
+          <Key>
+            <PropertyRef Name="underSymbol" />
+            <PropertyRef Name="tradeDate" />
+            <PropertyRef Name="expYear" />
+            <PropertyRef Name="expMonth" />
+          </Key>
+          <Property Name="underSymbol" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tradeDate" Type="Int32" Nullable="false" />
+          <Property Name="expYear" Type="Int32" Nullable="false" />
+          <Property Name="expMonth" Type="Int32" Nullable="false" />
+          <Property Name="dldAttempt" Type="Int32" Nullable="false" />
+          <Property Name="lastAttDate" Type="Int32" Nullable="false" />
+          <Property Name="lastAttTime" Type="Int32" Nullable="false" />
+          <Property Name="success" Type="Int32" Nullable="false" />
+          <Property Name="notes" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="groupName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="PriceEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="OptionErrors" EntityType="Self.OptionError" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PriceModelStoreContainer" CdmEntityContainer="PriceEntities">
+          <EntitySetMapping Name="OptionErrors">
+            <EntityTypeMapping TypeName="PriceModel.OptionError">
+              <MappingFragment StoreEntitySet="OptionErrors">
+                <ScalarProperty Name="groupName" ColumnName="groupName" />
+                <ScalarProperty Name="underSymbol" ColumnName="underSymbol" />
+                <ScalarProperty Name="tradeDate" ColumnName="tradeDate" />
+                <ScalarProperty Name="expYear" ColumnName="expYear" />
+                <ScalarProperty Name="expMonth" ColumnName="expMonth" />
+                <ScalarProperty Name="dldAttempt" ColumnName="dldAttempt" />
+                <ScalarProperty Name="lastAttDate" ColumnName="lastAttDate" />
+                <ScalarProperty Name="lastAttTime" ColumnName="lastAttTime" />
+                <ScalarProperty Name="success" ColumnName="success" />
+                <ScalarProperty Name="notes" ColumnName="notes" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
